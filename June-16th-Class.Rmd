@@ -12,15 +12,15 @@ library(tidyverse)
 ```
 
 ```{r, warning = FALSE}
-nhanes $ height
+# nhanes $ height
 
 nhanes |> 
   drop_na(height) |> 
-  select(height) |>  
-  ggplot(mapping = aes(x = height)) +
-        geom_histogram(fill = "steelblue", color = "black") +
-        labs(title = "Histogram of Heights", x = "Height", y = "Count", 
-             caption = "Source: nhanes")
-        
+  ggplot(mapping = aes(x = height, fill = gender)) +
+        geom_histogram(bins = 50, alpha = .8, color = "black") +
+        facet_wrap(~ gender) +
+        labs(title = "Height of U.S. Adults and Chindren",
+             subtitle = "Males are taller than females", x = "Height", y = "Count", 
+             caption = "Source: National Health and Nutrition \n Examination Survey (NHANES)", fill = "Gender")
 ```
 
