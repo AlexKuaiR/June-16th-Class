@@ -1,0 +1,26 @@
+---
+title: "June 16th Class"
+author: "Alex Kuai"
+date: '2022-06-17'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(primer.data)
+library(tidyverse)
+```
+
+```{r, warning = FALSE}
+nhanes $ height
+
+nhanes |> 
+  drop_na(height) |> 
+  select(height) |>  
+  ggplot(mapping = aes(x = height)) +
+        geom_histogram(fill = "steelblue", color = "black") +
+        labs(title = "Histogram of Heights", x = "Height", y = "Count", 
+             caption = "Source: nhanes")
+        
+```
+
